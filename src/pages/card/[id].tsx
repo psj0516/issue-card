@@ -2,9 +2,7 @@ import { GetServerSidePropsContext } from "next";
 import { useQuery } from "react-query";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import dynamic from "next/dynamic";
-
 import { getCard } from "@remote/card";
 import { Card } from "@models/card";
 import Top from "@shared/Top";
@@ -13,6 +11,7 @@ import Flex from "@shared/Flex";
 import Text from "@shared/Text";
 import ThreeScene from "@/components/card/ThreeScene";
 import Spacing from "@/components/shared/Spacing";
+import { useRouter } from "next/router";
 
 const FixedBottomButton = dynamic(() => import("@shared/FixedBottomButton"), {
   ssr: false,
@@ -23,8 +22,9 @@ interface CardDetailPageProps {
 }
 
 function CardDetailPage({ initialCard }: CardDetailPageProps) {
-  const { id } = useParams();
+  const router = useRouter();
 
+  const { id } = useParams();
   const { data } = useQuery(["card", id], () => getCard(id as string), {
     initialData: initialCard,
   });
@@ -76,7 +76,7 @@ function CardDetailPage({ initialCard }: CardDetailPageProps) {
       <FixedBottomButton
         label="1분만에 신청하고 혜택받기"
         onClick={() => {
-          // TODO:
+          router.push(`/card/apply/${id}`);
         }}
       />
     </div>

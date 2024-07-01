@@ -1,4 +1,5 @@
 export interface Card {
+  id?: string;
   name: string;
   corpName: string;
   tags: string[];
@@ -8,7 +9,7 @@ export interface Card {
     terms: string;
   };
   payback?: string;
-  color?: string[];
+  color: string[];
   image?: string;
   score?: number;
 }
