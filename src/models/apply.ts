@@ -13,6 +13,7 @@ export interface ApplyValues {
   isMaster: boolean;
   isHipass: boolean;
   isRf: boolean;
+  colorSelected: string;
 }
 
 export interface Option {
