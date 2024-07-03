@@ -50,6 +50,26 @@ class ThreeCard {
     this.mesh = new THREE.Group();
     this.mesh.add(baseMesh);
 
+    // 컬러코드 변환
+    function lightenColor(color: string) {
+      color = color.replace(/^#/, "");
+
+      let r = parseInt(color.substring(0, 2), 16);
+      let g = parseInt(color.substring(2, 4), 16);
+      let b = parseInt(color.substring(4, 6), 16);
+
+      r = Math.min(255, r + Math.round((255 * 50) / 100));
+      g = Math.min(255, g + Math.round((255 * 50) / 100));
+      b = Math.min(255, b + Math.round((255 * 50) / 100));
+
+      const rs = r.toString(16).padStart(2, "0");
+      const gs = g.toString(16).padStart(2, "0");
+      const bs = b.toString(16).padStart(2, "0");
+
+      // 새로운 컬러 코드를 반환합니다.
+      return `#${rs}${gs}${bs}`;
+    }
+
     if (texturePath) {
       const loader = new THREE.TextureLoader();
       loader.load(texturePath, (texture) => {
@@ -72,6 +92,7 @@ class ThreeCard {
 
     if (text) {
       const fontLoader = new FontLoader();
+      const textColor = lightenColor(color);
       fontLoader.load("https://threejs.org/examples/fonts/helvetiker_regular.typeface.json", (font) => {
         const textGeometry = new TextGeometry(text, {
           font: font,
@@ -80,7 +101,7 @@ class ThreeCard {
         });
 
         const textMaterial = new THREE.MeshStandardMaterial({
-          color,
+          color: textColor,
         });
 
         const textMesh = new THREE.Mesh(textGeometry, textMaterial);

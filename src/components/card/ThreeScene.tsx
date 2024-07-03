@@ -28,7 +28,7 @@ const ThreeScene = ({ color, image }: ThreeSceneProps) => {
     if (image) {
       ImagePath = image;
     } else {
-      ImagePath = "/test5.png";
+      ImagePath = "/texture/texture1.png";
     }
     const COLORS = ColorArray;
 
@@ -54,7 +54,7 @@ const ThreeScene = ({ color, image }: ThreeSceneProps) => {
 
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 500);
 
-    camera.position.z = 25;
+    camera.position.z = 18;
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.autoRotate = true;
@@ -66,8 +66,8 @@ const ThreeScene = ({ color, image }: ThreeSceneProps) => {
     controls.maxPolarAngle = Math.PI / 2 + Math.PI / 3;
 
     const card = new Card({
-      width: 10,
-      height: 15.8,
+      width: 11,
+      height: 16,
       radius: 0.5,
       color: COLORS[0],
       texturePath: ImagePath,
@@ -112,6 +112,26 @@ const ThreeScene = ({ color, image }: ThreeSceneProps) => {
 
     window.addEventListener("resize", handleResize);
 
+    // 컬러코드 변환
+    function lightenColor(color: string) {
+      color = color.replace(/^#/, "");
+
+      let r = parseInt(color.substring(0, 2), 16);
+      let g = parseInt(color.substring(2, 4), 16);
+      let b = parseInt(color.substring(4, 6), 16);
+
+      r = Math.min(255, r + Math.round((255 * 50) / 100));
+      g = Math.min(255, g + Math.round((255 * 50) / 100));
+      b = Math.min(255, b + Math.round((255 * 50) / 100));
+
+      const rs = r.toString(16).padStart(2, "0");
+      const gs = g.toString(16).padStart(2, "0");
+      const bs = b.toString(16).padStart(2, "0");
+
+      // 새로운 컬러 코드를 반환합니다.
+      return new THREE.Color(`#${rs}${gs}${bs}`);
+    }
+
     // 버튼 생성 및 이벤트 리스너 설정을 한 번만 실행
     if (buttonsRef.current) {
       buttonsRef.current.innerHTML = "";
@@ -121,21 +141,16 @@ const ThreeScene = ({ color, image }: ThreeSceneProps) => {
         button.className = cx(ButtonStyle);
         button.addEventListener("click", () => {
           const newColor = new THREE.Color(color);
+          const newTextColor = lightenColor(color);
           baseMaterial.color = newColor;
 
           // 텍스트 메쉬 색상 변경
           card.mesh.children.forEach((child) => {
             if (child instanceof THREE.Mesh && child.geometry instanceof TextGeometry) {
-              (child.material as THREE.MeshStandardMaterial).color = newColor;
+              (child.material as THREE.MeshStandardMaterial).color = newTextColor;
               (child.material as THREE.MeshStandardMaterial).needsUpdate = true;
             }
           });
-
-          // gsap.to(card.mesh.rotation, {
-          //   y: card.mesh.rotation.y - Math.PI / 2,
-          //   duration: 1,
-          //   ease: "back.out(2.5)",
-          // });
         });
         buttonsRef.current?.appendChild(button);
       });
@@ -152,9 +167,9 @@ const ThreeScene = ({ color, image }: ThreeSceneProps) => {
 
   return (
     <>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", maxWidth: "500px" }}>
-        <div style={{ width: "50vw", height: "50vh", maxWidth: "500px" }}>
-          <div ref={mountRef} style={{ width: "100%", height: "100%" }} />
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "start", maxWidth: "500px" }}>
+        <div style={{ maxWidth: "300px", minHeight: "300px" }}>
+          <div ref={mountRef} style={{ width: "100%", height: "100%", maxWidth: "300px", minHeight: "300px" }} />
         </div>
         <div ref={buttonsRef} style={{ padding: "8px 24px" }} className="container" />
       </div>
