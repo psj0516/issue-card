@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,7 +10,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       </Head>
       {children}
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

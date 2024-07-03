@@ -5,6 +5,7 @@ import { Global } from "@emotion/react";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import Layout from "@/components/shared/Layout";
 import Navbar from "@/components/shared/Navbar";
+import styled from "@emotion/styled";
 
 const client = new QueryClient({});
 
@@ -17,7 +18,9 @@ export default function App({ Component, pageProps: { dehydratedState, session, 
           <Hydrate state={dehydratedState}>
             <AlertContextProvider>
               <Navbar />
-              <Component {...pageProps} />
+              <Container>
+                <Component {...pageProps} />
+              </Container>
             </AlertContextProvider>
           </Hydrate>
         </QueryClientProvider>
@@ -25,3 +28,8 @@ export default function App({ Component, pageProps: { dehydratedState, session, 
     </>
   );
 }
+
+const Container = styled.div`
+  max-width: 824px;
+  margin: auto;
+`;
