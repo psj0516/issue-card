@@ -8,11 +8,7 @@ import CardInfo from "@/components/card/Apply/CardInfo";
 import { ApplyValues } from "@models/apply";
 import ApplyDone from "@/components/card/Apply/ApplyDone";
 import { getCard } from "@/remote/card";
-
-interface cardDataType {
-  name: string;
-  color: string[];
-}
+import { cardDataType } from "@/models/card";
 
 function ApplyPage() {
   const { id } = useParams() as { id: string };
@@ -20,7 +16,7 @@ function ApplyPage() {
   const [applyValues, setApplyValues] = useState<Partial<ApplyValues>>({
     cardId: id,
   });
-  const [cardData, setCardData] = useState<cardDataType>({ name: "", color: [] });
+  const [cardData, setCardData] = useState<cardDataType>({ name: "", color: [], image: "" });
 
   useEffect(() => {
     if (step === 3) {
@@ -38,7 +34,7 @@ function ApplyPage() {
       return;
     }
 
-    setCardData({ name: data.name, color: data.color });
+    setCardData({ name: data.name, color: data.color, image: data.image });
   };
 
   const handleTermsChange = (terms: ApplyValues["terms"]) => {

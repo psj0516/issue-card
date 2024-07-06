@@ -7,6 +7,7 @@ import FixedBottomButton from "@shared/FixedBottomButton";
 import { ApplyValues } from "@models/apply";
 import { css, SerializedStyles } from "@emotion/react";
 import styled from "@emotion/styled";
+import Text from "@/components/shared/Text";
 
 type CardInfoValues = Pick<ApplyValues, "isHipass" | "isMaster" | "isRf" | "colorSelected">;
 
@@ -15,10 +16,10 @@ function CardInfo({ onNext, colorList }: { onNext: (cardInfoValues: Pick<ApplyVa
     isHipass: false,
     isMaster: false,
     isRf: false,
-    colorSelected: "",
+    colorSelected: colorList[0],
   });
 
-  const [selectedColorIndex, setSelectedColorIndex] = useState<number | null>(null);
+  const [selectedColorIndex, setSelectedColorIndex] = useState<number | null>(0);
 
   const { isHipass, isMaster, isRf, colorSelected } = cardInfoValues;
 
@@ -41,6 +42,10 @@ function CardInfo({ onNext, colorList }: { onNext: (cardInfoValues: Pick<ApplyVa
 
   return (
     <div>
+      <Spacing size={12} />
+      <Text typography="t6" bold={true}>
+        색상 선택
+      </Text>
       <Container>
         {colorList.map((color, index) => (
           <button
@@ -96,7 +101,7 @@ function CardInfo({ onNext, colorList }: { onNext: (cardInfoValues: Pick<ApplyVa
 
 const Container = styled.div`
   display: flex;
-  padding: 4px 2px;
+  padding: 10px 2px;
 `;
 
 const ButtonStyle = (isSelected: boolean): SerializedStyles => css`
@@ -104,8 +109,7 @@ const ButtonStyle = (isSelected: boolean): SerializedStyles => css`
   height: 32px;
   border-radius: 50%;
   cursor: pointer;
-  border: ${isSelected ? "3px solid black" : "none"};
-
+  box-shadow: ${isSelected ? "0 0 0 1px #ffffff, 0 0 0 3px #000000" : "none"};
   &:not(:first-of-type) {
     margin-left: 16px;
   }

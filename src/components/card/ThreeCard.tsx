@@ -73,8 +73,8 @@ class ThreeCard {
     if (texturePath) {
       const loader = new THREE.TextureLoader();
       loader.load(texturePath, (texture) => {
-        const aspectRatio = texture.image.width / texture.image.height;
-        const imageWidth = width * aspectRatio;
+        // const aspectRatio = texture.image.width / texture.image.height;
+        const imageWidth = width;
         const imageHeight = height;
 
         const imageGeometry = new THREE.PlaneGeometry(imageWidth, imageHeight);

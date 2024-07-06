@@ -10,6 +10,12 @@ export interface Card {
   };
   payback?: string;
   color: string[];
-  image?: string;
+  image: string;
   score?: number;
+}
+
+export interface cardDataType {
+  name: string;
+  color: string[];
+  image: string;
 }

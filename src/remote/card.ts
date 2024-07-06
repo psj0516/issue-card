@@ -21,10 +21,6 @@ export async function getCards(pageParam?: QuerySnapshot<Card>) {
 export async function getSearchCards(score: number) {
   const searchQuery = query(collection(store, COLLECTIONS.CARD), where("score", "<=", score), orderBy("score"));
   const cardSnapshot = await getDocs(searchQuery);
-  const cards = cardSnapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...(doc.data() as Card),
-  }));
 
   return cardSnapshot.docs.map((doc) => ({
     id: doc.id,

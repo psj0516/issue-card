@@ -12,7 +12,7 @@ export const card_list = [
     payback: "30만원 증정",
     image: "/textures/texture1.png",
     color: ["#DDDDDD", "#DAF7A6", "#4EB3FF", "#181818"],
-    score: 500,
+    score: 600,
   },
   {
     name: "다담카드",
@@ -27,7 +27,7 @@ export const card_list = [
     payback: "20만원 증정",
     image: "/textures/texture2.png",
     color: ["#35ac9c", "#36ba98", "#e9c46a", "#f4a261", "#e76f51"],
-    score: 600,
+    score: 700,
   },
   {
     name: "청춘대로 톡톡카드",
@@ -42,7 +42,7 @@ export const card_list = [
     payback: "13만원 증정",
     image: "/textures/texture3.png",
     color: ["#ffbcbf", "#45954c", "#fff7e5", "#21423c"],
-    score: 100,
+    score: 200,
   },
   {
     name: "Easy all 티타늄카드",
@@ -96,14 +96,13 @@ export const card_list = [
     corpName: "신한카드",
     tags: ["생활/교육/쇼핑", "선택형패키지", "면세점"],
     benefit: ["마트/편의점 10% 할인", "백화점 10% 할인", "온라인쇼핑, 롯데시네마 5,000원 할인", "소셜커머스 2,000원 할인", "홈쇼핑 4,000원 할인"],
-    image: "/textures/texture2.png",
-    color: ["#62cac9", "#5c7cb9", "#d0b6e3", "#fa687f"],
+    image: "/textures/texture3.png",
+    color: ["#ec7a08", "#c60c30", "#822433", "#513c40", "#616365"],
     score: 200,
   },
   {
     name: "FINETECH카드(대한항공)",
     corpName: "KB국민카드",
-    promotion: "<p>KB국민카드 최대 18만원 캐시백</p>",
     tags: ["모든가맹점", "국내외가맹점", "면세점"],
     benefit: ["스타벅스 10% 할인", "대형마트 10% 할인", "온라인쇼핑, 롯데시네마 5,000원 할인", "소셜커머스 2,000원 할인", "피트니스 4,000원 할인"],
     image: "/textures/texture3.png",
@@ -200,7 +199,7 @@ export const card_list = [
     },
     image: "/textures/texture2.png",
     color: ["#DDDDDD", "#DAF7A6", "#4EB3FF", "#181818"],
-    score: 300,
+    score: 400,
   },
   {
     name: "스카이패스 티타늄 카드",
@@ -250,7 +249,7 @@ export const card_list = [
     benefit: ["스타벅스 10% 할인", "대형마트 10% 할인", "온라인쇼핑, 롯데시네마 5,000원 할인", "소셜커머스 2,000원 할인", "피트니스 4,000원 할인"],
     image: "/textures/texture1.png",
     color: ["#96ceb4", "#ffeead", "#ff6f69", "#aaaaaa"],
-    score: 600,
+    score: 800,
   },
   {
     name: "Easy link 티타늄카드",
@@ -282,7 +281,7 @@ export const card_list = [
     benefit: ["스타벅스 10% 할인", "대형마트 10% 할인", "온라인쇼핑, 롯데시네마 5,000원 할인", "소셜커머스 2,000원 할인", "피트니스 4,000원 할인"],
     image: "/textures/texture1.png",
     color: ["#ec7a08", "#c60c30", "#822433", "#513c40", "#616365"],
-    score: 200,
+    score: 300,
   },
   {
     name: "Easy pick 티타늄 카드",
