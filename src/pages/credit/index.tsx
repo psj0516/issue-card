@@ -11,10 +11,12 @@ import Badge from "@/components/shared/Badge";
 import { Card } from "@/models/card";
 import { css } from "@emotion/react";
 import { colors } from "@/styles/colorPalette";
+import { slice } from "lodash";
 
 function CreditPage() {
   const navigate = useRouter();
   const [score, setScore] = useState(0);
+  const [dataCount, setDataCount] = useState(0);
   const [data, setData] = useState<Card[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,7 +24,13 @@ function CreditPage() {
     setIsLoading(true);
     try {
       const data = await getSearchCards(score);
-      setData(data);
+      if (data.length > 10) {
+        setData(slice(data, 0, 10));
+        setDataCount(10);
+      } else {
+        setData(data);
+        setDataCount(data.length);
+      }
     } catch (error) {
       console.error("Error fetching card data:", error);
     } finally {
@@ -31,7 +39,6 @@ function CreditPage() {
   };
 
   useEffect(() => {
-    console.log(score);
     fetchCardData(score);
   }, [score]);
 
@@ -55,7 +62,7 @@ function CreditPage() {
         <Spacing size={80} />
       </div>
       <Text bold={true} style={{ padding: "12px 24px", display: "inline-block" }}>
-        추천 카드
+        추천 카드 {dataCount == 0 ? null : <span>Top {dataCount}</span>}
       </Text>
       {isLoading ? (
         <p css={pStyles}>불러오는 중...</p>
