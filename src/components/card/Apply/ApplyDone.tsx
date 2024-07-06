@@ -6,8 +6,8 @@ import { ApplyValues } from "@/models/apply";
 import Spacing from "@/components/shared/Spacing";
 import { cardDataType } from "@/models/card";
 import { css } from "@emotion/react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
+import ListIcon from "@/components/shared/ListIcon";
 
 function ApplyDone({ applyValues, cardData }: { applyValues: Partial<ApplyValues>; cardData: cardDataType }) {
   const router = useRouter();
@@ -28,15 +28,26 @@ function ApplyDone({ applyValues, cardData }: { applyValues: Partial<ApplyValues
       <Spacing size={12} />
       <div css={cardImage(applyValues.colorSelected as string, imgsrc)}></div>
       <Text typography="t5">{cardData.name}</Text>
-
       <Spacing size={12} />
       <Text typography="t5" bold={true}>
         옵션 확인
       </Text>
-      <Text>해외결제: {applyValues.isMaster == true ? <span>신청</span> : <span>신청안함</span>}</Text>
-      <Text>후불교통기능: {applyValues.isMaster == true ? <span>신청</span> : <span>신청안함</span>}</Text>
-      <Text>후불하이패스카드: {applyValues.isHipass == true ? <span>신청</span> : <span>신청안함</span>}</Text>
-      <Text>결제일: {applyValues.payDate}</Text>
+      <div css={optionDiv}>
+        <ListIcon value="cardInfo" status={applyValues.isMaster ?? false} />
+        <Text typography="t5">해외결제</Text>
+      </div>
+      <div css={optionDiv}>
+        <ListIcon value="cardInfo" status={applyValues.isRf ?? false} />
+        <Text typography="t5">후불교통기능</Text>
+      </div>
+      <div css={optionDiv}>
+        <ListIcon value="cardInfo" status={applyValues.isHipass ?? false} />
+        <Text typography="t5">후불하이패스카드</Text>
+      </div>
+      <div css={optionDiv}>
+        <ListIcon value="payDate" />
+        <Text typography="t5">결제일: {applyValues.payDate}</Text>
+      </div>
 
       <FixedBottomButton
         label="확인"
@@ -56,6 +67,11 @@ const cardImage = (colorSelected: string, imgsrc: string) => css`
   background-image: url(${imgsrc});
   background-size: cover;
   background-position: center;
+`;
+
+const optionDiv = css`
+  display: flex;
+  align-items: center;
 `;
 
 export default ApplyDone;

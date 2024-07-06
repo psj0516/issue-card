@@ -4,11 +4,14 @@ import { useParams } from "next/navigation";
 import Terms from "@/components/card/Apply/Terms";
 import BasicInfo from "@/components/card/Apply/BasicInfo";
 import CardInfo from "@/components/card/Apply/CardInfo";
+import ApplyDone from "@/components/card/Apply/ApplyDone";
+import ProgressBar from "@shared/ProgressBar";
 
 import { ApplyValues } from "@models/apply";
-import ApplyDone from "@/components/card/Apply/ApplyDone";
 import { getCard } from "@/remote/card";
 import { cardDataType } from "@/models/card";
+
+const LAST_STEP = 3;
 
 function ApplyPage() {
   const { id } = useParams() as { id: string };
@@ -64,12 +67,9 @@ function ApplyPage() {
     setStep((prevStep) => prevStep + 1);
   };
 
-  const handleSubmit = () => {
-    console.log(applyValues);
-  };
-
   return (
     <div>
+      <ProgressBar progress={(step as number) / LAST_STEP} />
       {step === 0 ? <Terms onNext={handleTermsChange} /> : null}
       {step === 1 ? <BasicInfo onNext={handleBasicInfoChange} /> : null}
       {step === 2 ? <CardInfo onNext={handleCardInfoChange} colorList={cardData.color} /> : null}
