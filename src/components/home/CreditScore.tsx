@@ -8,21 +8,19 @@ import Skeleton from "@shared/Skeleton";
 
 function CreditScore() {
   return (
-    <div style={{ padding: 24 }}>
-      <Flex justify="space-between" align="center">
-        <Flex direction="column">
-          <Text bold={true}>
-            나의 신용도를 증명하고 <br />
-            점수를 올리세요
-          </Text>
-          <Spacing size={8} />
-          <Link href="/credit">
-            <Button>내 신용점수 보러가기</Button>
-          </Link>
-        </Flex>
-        <CreditScoreChart width={80} height={80} score={0} />
+    <Flex justify="space-between" align="center">
+      <Flex direction="column">
+        <Text bold={true} typography="t2" color="deepblue">
+          나의 신용도를 확인하고 <br />
+          맞춤 카드 추천받기
+        </Text>
+        <Spacing size={20} />
+        <Link href="/credit">
+          <Button style={{ fontSize: "15px" }}>내 추천 카드 보러가기</Button>
+        </Link>
       </Flex>
-    </div>
+      <CreditScoreChart width={80} height={80} score={0} />
+    </Flex>
   );
 }
 

@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState, memo } from "react";
+import { useSpring, animated } from "@react-spring/web";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
@@ -19,7 +20,7 @@ function addDelimiter(value: number | string, delimiter = ",") {
 
 function CreditScoreChart({ score, width = 100, height = 100 }: CreditScoreChartProps) {
   const pathRef = useRef<SVGPathElement>(null);
-  const [totalLenght, setTotalLength] = useState(0);
+  const [totalLength, setTotalLength] = useState(0);
 
   useEffect(() => {
     if (pathRef.current) {
@@ -27,7 +28,14 @@ function CreditScoreChart({ score, width = 100, height = 100 }: CreditScoreChart
     }
   }, []);
 
-  const dashoffset = totalLenght - (score / max_score) * totalLenght;
+  const displayScore = score === 0 ? 500 : score;
+  const textScore = score === 0 ? "???" : addDelimiter(score);
+
+  const { dashoffset } = useSpring({
+    dashoffset: totalLength - (displayScore / max_score) * totalLength,
+    from: { dashoffset: totalLength },
+    config: { duration: 1000 },
+  });
 
   return (
     <Container width={width} height={height}>
@@ -41,19 +49,19 @@ function CreditScoreChart({ score, width = 100, height = 100 }: CreditScoreChart
           strokeLinecap="round"
         ></path>
         {/* 파란색 경로 */}
-        <path
+        <animated.path
           d="M18.421 154C12.3741 140.971 9 126.458 9 111.159C9 54.7382 54.8908 9 111.5 9C168.109 9 214 54.7382 214 111.159C214 126.458 210.626 140.971 204.579 154"
-          stroke={colors.blue980}
+          stroke={colors.amber}
           strokeWidth="18"
           strokeLinecap="round"
           // 전체 길이
-          strokeDasharray={totalLenght}
+          strokeDasharray={totalLength}
           // 움직일 길이
           strokeDashoffset={dashoffset}
-        ></path>
+        ></animated.path>
       </svg>
       <Text bold={true} css={textStyles} typography="t6">
-        {score === 0 ? "???" : addDelimiter(score)}
+        {textScore}
       </Text>
     </Container>
   );

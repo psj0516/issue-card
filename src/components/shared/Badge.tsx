@@ -19,7 +19,7 @@ function Badge({ label }: BadgeProps) {
 
 const Container = styled.div`
   border-radius: 12px;
-  background-color: ${colors.blue};
+  background-color: ${colors.deepblue};
   padding: 2px 8px;
 `;
 

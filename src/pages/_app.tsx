@@ -17,8 +17,8 @@ export default function App({ Component, pageProps: { dehydratedState, session, 
         <QueryClientProvider client={client}>
           <Hydrate state={dehydratedState}>
             <AlertContextProvider>
-              <Navbar />
               <Container>
+                <Navbar />
                 <Component {...pageProps} />
               </Container>
             </AlertContextProvider>
@@ -30,6 +30,9 @@ export default function App({ Component, pageProps: { dehydratedState, session, 
 }
 
 const Container = styled.div`
-  max-width: 824px;
-  margin: auto;
+  padding: 20px 40px;
+
+  @media (min-width: 1600px) {
+    padding: 20px 80px;
+  }
 `;

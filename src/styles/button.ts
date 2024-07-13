@@ -1,9 +1,9 @@
-import { css } from '@emotion/react'
-import { colors } from './colorPalette'
+import { css } from "@emotion/react";
+import { colors } from "./colorPalette";
 
 export const buttonColorMap = {
   primary: css`
-    background-color: ${colors.blue};
+    background-color: ${colors.deepblue};
     color: ${colors.white};
   `,
   success: css`
@@ -14,13 +14,13 @@ export const buttonColorMap = {
     background-color: ${colors.red};
     color: ${colors.white};
   `,
-}
+};
 
 export const buttonWeakMap = {
   primary: css`
     background-color: ${colors.white};
-    color: ${colors.blue};
-    border: 1px solid ${colors.blue};
+    color: ${colors.deepblue};
+    border: 1px solid ${colors.deepblue};
   `,
   success: css`
     background-color: ${colors.white};
@@ -32,7 +32,7 @@ export const buttonWeakMap = {
     color: ${colors.red};
     border: 1px solid ${colors.red};
   `,
-}
+};
 
 export const buttonSizeMap = {
   small: css`
@@ -47,7 +47,7 @@ export const buttonSizeMap = {
     font-size: 18px;
     padding: 12px 10px;
   `,
-}
+};
 
-export type ButtonColor = keyof typeof buttonColorMap
-export type ButtonSize = keyof typeof buttonSizeMap
+export type ButtonColor = keyof typeof buttonColorMap;
+export type ButtonSize = keyof typeof buttonSizeMap;

@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { useQuery } from "react-query";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { getAdBanners } from "@/remote/banner";
 import Flex from "@shared/Flex";
 import Text from "@shared/Text";
 import { colors } from "@styles/colorPalette";
@@ -23,14 +21,19 @@ function AdBanners() {
   return (
     <Container>
       <Swiper spaceBetween={8}>
-        {data?.map((banner) => {
+        {data?.map((banner, index) => {
+          const backgroundColor = index % 2 === 0 ? colors.lightgray : colors.amber;
           return (
             <SwiperSlide key={banner.id}>
               <Link href={banner.link}>
-                <Flex justify="space-between" css={bannerContainerStyles}>
+                <Flex justify="space-between" css={bannerContainerStyles(backgroundColor)}>
                   <Flex direction="column">
-                    <Text bold={true}>{banner.title}</Text>
-                    <Text typography="t7">{banner.description}</Text>
+                    <Text bold={true} color="deepblue">
+                      {banner.title}
+                    </Text>
+                    <Text typography="t7" color="deepblue">
+                      {banner.description}
+                    </Text>
                   </Flex>
                   <Image src={banner.iconUrl} width={40} height={50} alt="" />
                 </Flex>
@@ -67,8 +70,8 @@ const Container = styled.div`
   padding: 24px;
 `;
 
-const bannerContainerStyles = css`
+const bannerContainerStyles = (backgroundColor: string) => css`
   padding: 16px;
-  background-color: ${colors.gray20};
+  background-color: ${backgroundColor};
   border-radius: 4px;
 `;
