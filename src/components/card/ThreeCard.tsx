@@ -90,6 +90,31 @@ class ThreeCard {
       });
     }
 
+    // 텍스처 로드
+    const loadImage = (url: string, width: number, height: number, position: THREE.Vector3, rotation: THREE.Euler) => {
+      const loader = new THREE.TextureLoader();
+      loader.load(url, (texture) => {
+        const imageGeometry = new THREE.PlaneGeometry(width, height);
+        const imageMaterial = new THREE.MeshBasicMaterial({
+          map: texture,
+          transparent: true,
+        });
+
+        const imageMesh = new THREE.Mesh(imageGeometry, imageMaterial);
+        imageMesh.position.copy(position);
+        imageMesh.rotation.copy(rotation);
+
+        this.mesh.add(imageMesh);
+      });
+    };
+
+    // 이미지 추가
+    const chipUrl = "https://i.ibb.co/G9pDnYJ/chip.png";
+    const visaUrl = "https://i.ibb.co/WHZ3nRJ/visa.png";
+
+    loadImage(chipUrl, 2, 2, new THREE.Vector3(width / 2 - 2, height / 2 - 3, 0.16), new THREE.Euler(0, 0, Math.PI / 2));
+    loadImage(visaUrl, 2, 1, new THREE.Vector3(width / 2 - 2, height / 2 - 14, 0.16), new THREE.Euler(0, 0, (3 * Math.PI) / 2));
+
     if (text) {
       const fontLoader = new FontLoader();
       const textColor = lightenColor(color);

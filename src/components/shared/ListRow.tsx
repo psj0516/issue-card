@@ -19,7 +19,7 @@ function ListRow({ as = "li", left, contents, right, withArrow, onClick, style }
     <Flex as={as} css={[listRowContainerStyles, style]} onClick={onClick} align="center">
       {left && <Flex css={listRowLeftStyles}>{left}</Flex>}
       <Flex css={listRowContentsStyles}>{contents}</Flex>
-      {right && <Flex>{right}</Flex>}
+      {right && <Flex css={listRowRightStyles}>{right}</Flex>}
       {withArrow ? <IconArrowRight /> : null}
     </Flex>
   );
@@ -35,6 +35,10 @@ const listRowLeftStyles = css`
 
 const listRowContentsStyles = css`
   flex: 1;
+`;
+
+const listRowRightStyles = css`
+  margin-right: 10px;
 `;
 
 function ListRowTexts({ title, subTitle }: { title: React.ReactNode; subTitle: React.ReactNode }) {

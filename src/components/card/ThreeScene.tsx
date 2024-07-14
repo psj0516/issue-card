@@ -66,7 +66,7 @@ const ThreeScene = ({ color, image }: ThreeSceneProps) => {
     controls.maxPolarAngle = Math.PI / 2 + Math.PI / 3;
 
     const card = new Card({
-      width: 11,
+      width: 12,
       height: 16,
       radius: 0.5,
       color: COLORS[0],
