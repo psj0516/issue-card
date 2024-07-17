@@ -109,7 +109,7 @@ const ButtonStyle = (isSelected: boolean): SerializedStyles => css`
   height: 32px;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: ${isSelected ? "0 0 0 1px #ffffff, 0 0 0 3px #000000" : "none"};
+  box-shadow: ${isSelected ? "0 0 0 1px #ffffff, 0 0 0 3px #14213D" : "none"};
   &:not(:first-of-type) {
     margin-left: 16px;
   }

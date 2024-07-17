@@ -81,7 +81,8 @@ function CreditPage() {
       ) : (
         <p css={pStyles}>나의 신용점수에 적절한 카드가 없습니다.</p>
       )}
-      <div style={{ padding: "8px 24px" }}>
+      <Spacing size={20} />
+      <div style={{ padding: "8px 0px" }}>
         <ul css={recList}>
           <ListRow
             contents={<ListRow.Texts title="더 많은 카드" subTitle="더 많은 카드 찾아보기" />}
@@ -101,7 +102,7 @@ const pStyles = css`
 `;
 
 const recList = css`
-  background: ${colors.gray200};
+  background: ${colors.lightgray};
   border-radius: 4px;
 `;
 

@@ -4,7 +4,7 @@ import { colors } from "@styles/colorPalette";
 
 const BaseProgressBar = styled.div<{ progress: number }>(({ progress }) => ({
   height: 10,
-  backgroundColor: colors.blue,
+  backgroundColor: colors.amber,
   transform: `scaleX(${progress})`,
   transition: "transform 0.3s",
   transformOrigin: "left",
