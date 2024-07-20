@@ -1,40 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [My B-Card]
+My B-Card는 카드 발급 절차를 구현한 가상의 사이트입니다. 다양한 은행사의 카드를 비교하고 선택할 수 있도록 신용카드 리스트를 제공하며, 각 카드의 특징과 혜택, 주의사항을 확인할 수 있습니다. 또한 상세 페이지에서 카드의 디자인과 선택 가능한 색상을 3D로 확인 가능합니다. 간편하고 빠른 카드 신청 프로세스를 통해 최적의 카드를 선택해보세요.
 
-## Getting Started
 
-First, run the development server:
+## 주요 기능:
+1. **카드 리스트 진열**
+    - 다양한 은행사의 신용카드 리스트를 인기순으로 보여줍니다.
+    - 카드 리스트를 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **광고 배너 삽입**
+    - 리스트 상단에 광고 배너를 배치하여 현재 진행중인 이벤트 리스트를 자동 슬라이더 형태로 보여줍니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **카드 상세 정보**
+    - 사용자가 카드를 클릭하면 해당 카드의 상세 페이지로 이동합니다.
+    - 상세 페이지에는 카드의 특징, 혜택, 주의사항, 카드 디자인을 보여줍니다.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+4. **카드 발급 신청**
+    - 약관 동의를 받고, 발급자의 정보를 입력받습니다.
+    - 카드 옵션을 선택한 후 신청을 완료합니다.
+    - 신청이 완료되면 완료 페이지가 나타나고, 신청 상태를 확인할 수 있습니다.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
+5. **신용도 확인**
+    - 자신의 신용도를 확인할 수 있습니다. (신용도는 랜덤으로 나타납니다.)
+    - 신용도에 맞추어 추천 카드 리스트가 나타납니다.
+  
+ 
 ## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+https://my-b-card.vercel.app/
