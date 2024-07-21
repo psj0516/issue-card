@@ -37,11 +37,19 @@ const ThreeScene = ({ color, image }: ThreeSceneProps) => {
       alpha: true,
     });
 
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(75, 1, 1, 500); // Aspect ratio will be updated in updateRendererSize()
+    camera.position.z = 18;
+
     const updateRendererSize = () => {
       if (mountRef.current) {
         const { clientWidth, clientHeight } = mountRef.current;
         renderer.setSize(clientWidth, clientHeight);
         renderer.setPixelRatio(window.devicePixelRatio);
+
+        camera.aspect = clientWidth / clientHeight;
+        camera.updateProjectionMatrix();
       }
     };
 
@@ -49,12 +57,6 @@ const ThreeScene = ({ color, image }: ThreeSceneProps) => {
       mountRef.current.appendChild(renderer.domElement);
       updateRendererSize();
     }
-
-    const scene = new THREE.Scene();
-
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 500);
-
-    camera.position.z = 18;
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.autoRotate = true;
@@ -66,7 +68,7 @@ const ThreeScene = ({ color, image }: ThreeSceneProps) => {
     controls.maxPolarAngle = Math.PI / 2 + Math.PI / 3;
 
     const card = new Card({
-      width: 12,
+      width: 11,
       height: 16,
       radius: 0.5,
       color: COLORS[0],
@@ -104,10 +106,7 @@ const ThreeScene = ({ color, image }: ThreeSceneProps) => {
     render();
 
     const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
       updateRendererSize();
-      renderer.render(scene, camera);
     };
 
     window.addEventListener("resize", handleResize);

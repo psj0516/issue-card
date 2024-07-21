@@ -24,7 +24,7 @@ function ApplyDone({ applyValues, cardData, setStepsInit }: { applyValues: Parti
   return (
     <Flex direction="column" align="center">
       <Spacing size={30} />
-      <Text css={fadeIn} typography="t3" bold={true} color="deepblue">
+      <Text css={fadeIn} typography="t4" bold={true} color="deepblue">
         카드 발급 신청이 완료되었습니다!
       </Text>
       <Spacing size={20} />
@@ -101,6 +101,7 @@ const fadeInWithDelay = css`
 
 const InfoDiv = css`
   width: 460px;
+  max-width: 90%;
   background-color: ${colors.gray50};
   border-radius: 15px;
 `;

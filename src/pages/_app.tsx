@@ -35,4 +35,8 @@ const Container = styled.div`
   @media (min-width: 1600px) {
     padding: 20px 80px;
   }
+
+  @media (max-width: 480px) {
+    padding: 20px 20px;
+  }
 `;

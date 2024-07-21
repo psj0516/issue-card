@@ -79,6 +79,10 @@ const Container = styled.div`
 const MainStyle = css`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const MainTextStyle = css`
@@ -88,6 +92,14 @@ const MainTextStyle = css`
 
   p span {
     color: ${colors.amber};
+  }
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 28px;
   }
 `;
 
