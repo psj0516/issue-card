@@ -11,7 +11,7 @@ import Badge from "@/components/shared/Badge";
 import { Card } from "@/models/card";
 import { css } from "@emotion/react";
 import { colors } from "@/styles/colorPalette";
-import { slice } from "lodash";
+import slice from "lodash.slice";
 
 function CreditPage() {
   const navigate = useRouter();
