@@ -57,7 +57,7 @@ const RAW_RUNTIME_STATE =
           ["react-infinite-scroll-component", "virtual:65b3f793333da0397fcf858435dfd89cdcdec4de7bef88bb26ac1740101af092786fed1109a3ff429bd84419f2d2794df5f3ec37ade224be2cd06fbf9a03f61a#npm:6.1.0"],\
           ["react-markdown", "virtual:65b3f793333da0397fcf858435dfd89cdcdec4de7bef88bb26ac1740101af092786fed1109a3ff429bd84419f2d2794df5f3ec37ade224be2cd06fbf9a03f61a#npm:9.0.1"],\
           ["react-query", "virtual:65b3f793333da0397fcf858435dfd89cdcdec4de7bef88bb26ac1740101af092786fed1109a3ff429bd84419f2d2794df5f3ec37ade224be2cd06fbf9a03f61a#npm:3.39.3"],\
-          ["swiper", "npm:11.1.4"],\
+          ["swiper", "npm:8.4.7"],\
           ["three", "npm:0.166.0"],\
           ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"]\
         ],\
@@ -3666,6 +3666,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["dom7", [\
+      ["npm:4.0.6", {\
+        "packageLocation": "../../../../AppData/Local/Yarn/Berry/cache/dom7-npm-4.0.6-3656a6d3f2-10c0.zip/node_modules/dom7/",\
+        "packageDependencies": [\
+          ["dom7", "npm:4.0.6"],\
+          ["ssr-window", "npm:4.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["eastasianwidth", [\
       ["npm:0.2.0", {\
         "packageLocation": "../../../../AppData/Local/Yarn/Berry/cache/eastasianwidth-npm-0.2.0-c37eb16bd1-10c0.zip/node_modules/eastasianwidth/",\
@@ -5357,7 +5367,7 @@ const RAW_RUNTIME_STATE =
           ["react-infinite-scroll-component", "virtual:65b3f793333da0397fcf858435dfd89cdcdec4de7bef88bb26ac1740101af092786fed1109a3ff429bd84419f2d2794df5f3ec37ade224be2cd06fbf9a03f61a#npm:6.1.0"],\
           ["react-markdown", "virtual:65b3f793333da0397fcf858435dfd89cdcdec4de7bef88bb26ac1740101af092786fed1109a3ff429bd84419f2d2794df5f3ec37ade224be2cd06fbf9a03f61a#npm:9.0.1"],\
           ["react-query", "virtual:65b3f793333da0397fcf858435dfd89cdcdec4de7bef88bb26ac1740101af092786fed1109a3ff429bd84419f2d2794df5f3ec37ade224be2cd06fbf9a03f61a#npm:3.39.3"],\
-          ["swiper", "npm:11.1.4"],\
+          ["swiper", "npm:8.4.7"],\
           ["three", "npm:0.166.0"],\
           ["typescript", "patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"]\
         ],\
@@ -7219,6 +7229,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["ssr-window", [\
+      ["npm:4.0.2", {\
+        "packageLocation": "../../../../AppData/Local/Yarn/Berry/cache/ssr-window-npm-4.0.2-01f9c0151e-10c0.zip/node_modules/ssr-window/",\
+        "packageDependencies": [\
+          ["ssr-window", "npm:4.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["stop-iteration-iterator", [\
       ["npm:1.0.0", {\
         "packageLocation": "../../../../AppData/Local/Yarn/Berry/cache/stop-iteration-iterator-npm-1.0.0-ea451e1609-10c0.zip/node_modules/stop-iteration-iterator/",\
@@ -7454,10 +7473,12 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["swiper", [\
-      ["npm:11.1.4", {\
-        "packageLocation": "../../../../AppData/Local/Yarn/Berry/cache/swiper-npm-11.1.4-d9e487eecf-10c0.zip/node_modules/swiper/",\
+      ["npm:8.4.7", {\
+        "packageLocation": "./.yarn/unplugged/swiper-npm-8.4.7-9971804532/node_modules/swiper/",\
         "packageDependencies": [\
-          ["swiper", "npm:11.1.4"]\
+          ["swiper", "npm:8.4.7"],\
+          ["dom7", "npm:4.0.6"],\
+          ["ssr-window", "npm:4.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\

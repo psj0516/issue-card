@@ -2588,6 +2588,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom7@npm:^4.0.4":
+  version: 4.0.6
+  resolution: "dom7@npm:4.0.6"
+  dependencies:
+    ssr-window: "npm:^4.0.0"
+  checksum: 10c0/97fdb16e93a1b80ee154a7fa074d3d842e925c003c814da9e938dde270cc4cefa1bfc806718e0a2afd42d6b2359b7e714aab04cb1c7580f3414ebf20686c2d00
+  languageName: node
+  linkType: hard
+
 "eastasianwidth@npm:^0.2.0":
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
@@ -3973,7 +3982,7 @@ __metadata:
     react-infinite-scroll-component: "npm:^6.1.0"
     react-markdown: "npm:^9.0.0"
     react-query: "npm:^3.39.3"
-    swiper: "npm:^11.0.3"
+    swiper: "npm:^8.4.7"
     three: "npm:^0.166.0"
     typescript: "npm:^5"
   languageName: unknown
@@ -5589,6 +5598,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ssr-window@npm:^4.0.0, ssr-window@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "ssr-window@npm:4.0.2"
+  checksum: 10c0/e91f690f42ab2d4e36577a631a9d7b9bd20864ab99c1394481f64c5a0ae6922165ac0a06228560c2ccdd4f68338e795f2fd3cc16fbf9bfcc9c561bb89eb237cd
+  languageName: node
+  linkType: hard
+
 "stop-iteration-iterator@npm:^1.0.0":
   version: 1.0.0
   resolution: "stop-iteration-iterator@npm:1.0.0"
@@ -5790,10 +5806,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swiper@npm:^11.0.3":
-  version: 11.1.4
-  resolution: "swiper@npm:11.1.4"
-  checksum: 10c0/a1e4b87f414f67f5da6a07b33d5ee20e54062d21f8bed88195d5d56decff6afddf683e130118b7fa12668de221f794ae63f6c073761b683a4b90bbd5eb585202
+"swiper@npm:^8.4.7":
+  version: 8.4.7
+  resolution: "swiper@npm:8.4.7"
+  dependencies:
+    dom7: "npm:^4.0.4"
+    ssr-window: "npm:^4.0.2"
+  checksum: 10c0/cc7eaf93518505fe3b827e46a7fdc0e0897b1f61d09b377baf557e8214e95fa3221421fa3f7dc01c702641c48bb9b0df64fb3aeeffdb1455d79fe4b654148713
   languageName: node
   linkType: hard
 

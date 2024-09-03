@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper";
 
 import Flex from "@shared/Flex";
 import Text from "@shared/Text";
@@ -20,7 +21,7 @@ function AdBanners() {
 
   return (
     <Container>
-      <Swiper spaceBetween={8}>
+      <Swiper modules={[Autoplay]} autoplay={{ delay: 3000 }} loop={true} spaceBetween={8}>
         {data?.map((banner, index) => {
           const backgroundColor = index % 2 === 0 ? colors.lightgray : colors.amber;
           return (
