@@ -1,6 +1,5 @@
-import { GetServerSidePropsContext } from "next";
-import { useQuery } from "react-query";
-import { useParams } from "next/navigation";
+import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { getCard } from "@remote/card";
@@ -11,29 +10,23 @@ import Flex from "@shared/Flex";
 import Text from "@shared/Text";
 import ThreeScene from "@/components/card/ThreeScene";
 import Spacing from "@/components/shared/Spacing";
-import { useRouter } from "next/router";
 
 const FixedBottomButton = dynamic(() => import("@shared/FixedBottomButton"), {
   ssr: false,
 });
 
 interface CardDetailPageProps {
-  initialCard: Card;
+  card: Card | null;
 }
 
-function CardDetailPage({ initialCard }: CardDetailPageProps) {
+function CardDetailPage({ card }: CardDetailPageProps) {
   const router = useRouter();
 
-  const { id } = useParams();
-  const { data } = useQuery(["card", id], () => getCard(id as string), {
-    initialData: initialCard,
-  });
-
-  if (data == null) {
-    return;
+  if (card == null) {
+    return <div>카드를 찾을 수 없습니다.</div>;
   }
 
-  const { name, corpName, promotion, tags, benefit, color, image } = data;
+  const { name, corpName, promotion, tags, benefit, color, image } = card;
   const subTitle = promotion != null ? removeHtmlTags(promotion.title) : tags.join(",");
 
   return (
@@ -76,7 +69,7 @@ function CardDetailPage({ initialCard }: CardDetailPageProps) {
       <FixedBottomButton
         label="1분만에 신청하고 혜택받기"
         onClick={() => {
-          router.push(`/card/apply/${id}`);
+          router.push(`/card/apply/${card.id}`);
         }}
       />
     </div>
@@ -99,7 +92,7 @@ function IconCheck() {
   );
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
   const { query } = context;
   const cardId = query.id as string;
 
@@ -107,10 +100,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   return {
     props: {
-      initialCard: card,
+      card: card || null,
     },
   };
-}
+};
 
 function removeHtmlTags(text: string) {
   return text?.replace(/<\/?[^>]+(>|$)/g, "");
