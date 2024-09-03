@@ -1,5 +1,5 @@
-import { css } from '@emotion/react'
-import { colorPalette } from './colorPalette'
+import { css } from "@emotion/react";
+import { colorPalette } from "./colorPalette";
 
 export default css`
   ${colorPalette}
@@ -124,7 +124,7 @@ export default css`
   blockquote:after,
   q:before,
   q:after {
-    content: '';
+    content: "";
     content: none;
   }
   table {
@@ -146,4 +146,4 @@ export default css`
     color: inherit;
     text-decoration: inherit;
   }
-`
+`;
